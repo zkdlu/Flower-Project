@@ -7,7 +7,7 @@
     </ResourceDictionary.MergedDictionaries>
 
     <common:VisibilityConverter x:Key="VisibilityConverter"/>
-    
+
     <DataTemplate x:Key="ComponentTemplate" DataType="{x:Type viewmodels:ComponentViewModel}">
         <Grid 
               Width="{Binding Path=Width}"
@@ -18,7 +18,7 @@
                     <command:EventToCommand Command="{Binding Path=SelectCommand}"/>
                 </i:EventTrigger>
             </i:Interaction.Triggers>
-            
+
             <TextBlock Text="{Binding Path=Content}"/>
             <Thumb x:Name="SelectionThumb"
                    Style="{StaticResource SelectionThumb}"
@@ -31,6 +31,113 @@
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
             </Thumb>
+            <Thumb x:Name="TopLeftThumb"
+                   Style="{StaticResource ResizeThumbStyle}"                   
+                   HorizontalAlignment="Left" VerticalAlignment="Top"
+                   Width="10" Height="10" Margin="-5,-5,0,0"
+                   Cursor="SizeNWSE"
+                   Visibility="{Binding Path=IsSelected, Converter={StaticResource VisibilityConverter}}">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="DragDelta">
+                        <command:EventToCommand Command="{Binding Path=ResizeTopLeftCommand}"
+                                                PassEventArgsToCommand="True"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </Thumb>
+            <Thumb x:Name="TopThumb"
+                   Style="{StaticResource ResizeThumbStyle}"
+                   HorizontalAlignment="Center" VerticalAlignment="Top"
+                   Width="10" Height="10" Margin="0,-5,0,0"
+                   Cursor="SizeNS" 
+                   Visibility="{Binding Path=IsSelected, Converter={StaticResource VisibilityConverter}}">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="DragDelta">
+                        <command:EventToCommand Command="{Binding Path=ResizeTopCommand}"
+                                                PassEventArgsToCommand="True"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </Thumb>
+            <Thumb x:Name="TopRightThumb"
+                   Style="{StaticResource ResizeThumbStyle}"
+                   HorizontalAlignment="Right" VerticalAlignment="Top"
+                   Width="10" Height="10" Margin="0,-5,-5,0"
+                   Cursor="SizeNESW"
+                   Visibility="{Binding Path=IsSelected, Converter={StaticResource VisibilityConverter}}">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="DragDelta">
+                        <command:EventToCommand Command="{Binding Path=ResizeTopRightCommand}"
+                                                PassEventArgsToCommand="True"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </Thumb>
+
+            <Thumb x:Name="LeftThumb"
+                   Style="{StaticResource ResizeThumbStyle}"
+                   HorizontalAlignment="Left" VerticalAlignment="Center"
+                   Width="10" Height="10" Margin="-5,0,0,0"
+                   Cursor="SizeWE"
+                   Visibility="{Binding Path=IsSelected, Converter={StaticResource VisibilityConverter}}">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="DragDelta">
+                        <command:EventToCommand Command="{Binding Path=ResizeLeftCommand}"
+                                                PassEventArgsToCommand="True"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </Thumb>
+            <Thumb x:Name="RightThumb"
+                   Style="{StaticResource ResizeThumbStyle}"
+                   HorizontalAlignment="Right" VerticalAlignment="Center"
+                   Width="10" Height="10" Margin="0,0,-5,0"
+                   Cursor="SizeWE" 
+                   Visibility="{Binding Path=IsSelected, Converter={StaticResource VisibilityConverter}}">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="DragDelta">
+                        <command:EventToCommand Command="{Binding Path=ResizeRightCommand}"
+                                                PassEventArgsToCommand="True"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </Thumb>
+
+            <Thumb x:Name="BottomLeftThumb"
+                   Style="{StaticResource ResizeThumbStyle}"
+                   HorizontalAlignment="Left" VerticalAlignment="Bottom"
+                   Width="10" Height="10" Margin="-5,0,0,-5"
+                   Cursor="SizeNESW"
+                   Visibility="{Binding Path=IsSelected, Converter={StaticResource VisibilityConverter}}">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="DragDelta">
+                        <command:EventToCommand Command="{Binding Path=ResizeBottomLeftCommand}"
+                                                PassEventArgsToCommand="True"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </Thumb>
+            <Thumb x:Name="BottomThumb"
+                   Style="{StaticResource ResizeThumbStyle}"
+                   HorizontalAlignment="Center" VerticalAlignment="Bottom"
+                   Width="10" Height="10" Margin="0,0,0,-5"
+                   Cursor="SizeNS"
+                   Visibility="{Binding Path=IsSelected, Converter={StaticResource VisibilityConverter}}">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="DragDelta">
+                        <command:EventToCommand Command="{Binding Path=ResizeBottomCommand}"
+                                                PassEventArgsToCommand="True"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </Thumb>
+            <Thumb x:Name="BottomRightThumb"
+                   Style="{StaticResource ResizeThumbStyle}"
+                   HorizontalAlignment="Right" VerticalAlignment="Bottom"
+                   Width="10" Height="10" Margin="0,0,-5,-5"
+                   Cursor="SizeNWSE"
+                   Visibility="{Binding Path=IsSelected, Converter={StaticResource VisibilityConverter}}">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="DragDelta">
+                        <command:EventToCommand Command="{Binding Path=ResizeBottomRightCommand}"
+                                                PassEventArgsToCommand="True"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </Thumb>
+
         </Grid>
     </DataTemplate>
 </ResourceDictionary>

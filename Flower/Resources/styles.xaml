@@ -7,6 +7,7 @@
         <Setter Property="Canvas.Left" Value="{Binding Path=X}"/>
         <Setter Property="Canvas.Top" Value="{Binding Path=Y}"/>
     </Style>
+    
     <Style x:Key="SelectionThumb" TargetType="{x:Type Thumb}">
         <Setter Property="Template">
             <Setter.Value>
@@ -18,5 +19,17 @@
             </Setter.Value>
         </Setter>
     </Style>
-    
+
+    <Style x:Key="ResizeThumbStyle" TargetType="{x:Type Thumb}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Border BorderThickness="1" 
+                            BorderBrush="LightGray" 
+                            Background="Gray"/>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
 </ResourceDictionary>

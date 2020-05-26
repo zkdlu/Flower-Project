@@ -10,6 +10,9 @@ namespace Flower.ViewModels
 {
     class ComponentViewModel : BaseViewModel
     {
+        const int MIN_SIZE = 50;
+        const int MAX_SIZE = 500;
+
         public Component Component { get; set; }
 
         public double Width 
@@ -152,10 +155,115 @@ namespace Flower.ViewModels
             X += e.HorizontalChange;
             Y += e.VerticalChange;
         }
-       
+
+        public ICommand ResizeTopLeftCommand { get; private set; }
+        public ICommand ResizeTopCommand { get; private set; }
+        public ICommand ResizeTopRightCommand { get; private set; }
+
+        public ICommand ResizeLeftCommand { get; private set; }
+        public ICommand ResizeRightCommand { get; private set; }
+
+        public ICommand ResizeBottomLeftCommand { get; private set; }
+        public ICommand ResizeBottomCommand { get; private set; }
+        public ICommand ResizeBottomRightCommand { get; private set; }
+
+        private void ResizeTop(DragDeltaEventArgs e)
+        {
+            double newHeight = Height - e.VerticalChange;
+            if (newHeight >= MIN_SIZE)
+            {
+                Height = newHeight;
+                Y = Y + e.VerticalChange;
+            }
+        }
+
+        private void ResizeBottom(DragDeltaEventArgs e)
+        {
+            double newHeight = Height + e.VerticalChange;
+            if (newHeight >= MIN_SIZE)
+            {
+                Height = newHeight;
+            }
+
+        }
+
+        private void ResizeLeft(DragDeltaEventArgs e)
+        {
+            double newWidth = Width - e.HorizontalChange;
+            if (newWidth >= MIN_SIZE)
+            {
+                Width = newWidth;
+                X = X + e.HorizontalChange;
+            }
+        }
+
+        private void ResizeRight(DragDeltaEventArgs e)
+        {
+            double newWidth = Width + e.HorizontalChange;
+            if (newWidth >= MIN_SIZE)
+            {
+                Width = newWidth;
+            }
+        }
+
+        private void ResizeTopLeftComponent(DragDeltaEventArgs e)
+        {
+            ResizeTop(e);
+            ResizeLeft(e);
+        }
+
+        private void ResizeTopComponent(DragDeltaEventArgs e)
+        {
+            ResizeTop(e);
+        }
+
+        private void ResizeTopRightComponent(DragDeltaEventArgs e)
+        {
+            ResizeTop(e);
+            ResizeRight(e);
+        }
+
+        private void ResizeLeftComponent(DragDeltaEventArgs e)
+        {
+            ResizeLeft(e);
+        }
+
+        private void ResizeRightComponent(DragDeltaEventArgs e)
+        {
+            ResizeRight(e);
+        }
+
+        private void ResizeBottomLeftComponent(DragDeltaEventArgs e)
+        {
+            ResizeBottom(e);
+            ResizeLeft(e);
+        }
+
+        private void ResizeBottomComponent(DragDeltaEventArgs e)
+        {
+            ResizeBottom(e);
+        }
+
+        private void ResizeBottomRightComponent(DragDeltaEventArgs e)
+        {
+            ResizeBottom(e);
+            ResizeRight(e);
+        }
+
         public ComponentViewModel(Component component)
         {
-            Component = component;           
+            Component = component;
+
+            ResizeTopLeftCommand = new RelayCommand<DragDeltaEventArgs>(ResizeTopLeftComponent);
+            ResizeTopCommand = new RelayCommand<DragDeltaEventArgs>(ResizeTopComponent);
+            ResizeTopRightCommand = new RelayCommand<DragDeltaEventArgs>(ResizeTopRightComponent);
+
+            ResizeLeftCommand = new RelayCommand<DragDeltaEventArgs>(ResizeLeftComponent);
+            ResizeRightCommand = new RelayCommand<DragDeltaEventArgs>(ResizeRightComponent);
+
+            ResizeBottomLeftCommand = new RelayCommand<DragDeltaEventArgs>(ResizeBottomLeftComponent);
+            ResizeBottomCommand = new RelayCommand<DragDeltaEventArgs>(ResizeBottomComponent);
+            ResizeBottomRightCommand = new RelayCommand<DragDeltaEventArgs>(ResizeBottomRightComponent);
         }
     }
 }
