@@ -1,0 +1,22 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:viewmodels="clr-namespace:Flower.ViewModels"
+                    xmlns:local="clr-namespace:Flower.Resources">
+
+    <Style x:Key="ComponentStyle" TargetType="{x:Type viewmodels:ComponentViewModel}">
+        <Setter Property="Canvas.Left" Value="{Binding Path=X}"/>
+        <Setter Property="Canvas.Top" Value="{Binding Path=Y}"/>
+    </Style>
+    <Style x:Key="SelectionThumb" TargetType="{x:Type Thumb}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Border BorderBrush="Black" 
+                            BorderThickness="2"
+                            Background="Transparent"/>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+</ResourceDictionary>

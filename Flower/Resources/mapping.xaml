@@ -1,0 +1,36 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:common="clr-namespace:Flower.Common"
+                    xmlns:viewmodels="clr-namespace:Flower.ViewModels" xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" xmlns:command="http://www.galasoft.ch/mvvmlight">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="styles.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+
+    <common:VisibilityConverter x:Key="VisibilityConverter"/>
+    
+    <DataTemplate x:Key="ComponentTemplate" DataType="{x:Type viewmodels:ComponentViewModel}">
+        <Grid 
+              Width="{Binding Path=Width}"
+              Height="{Binding Path=Height}"              
+              Background="{Binding Path=Background}">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="PreviewMouseDown">
+                    <command:EventToCommand Command="{Binding Path=SelectCommand}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+            
+            <TextBlock Text="{Binding Path=Content}"/>
+            <Thumb x:Name="SelectionThumb"
+                   Style="{StaticResource SelectionThumb}"
+                   Cursor="SizeAll"
+                   Visibility="{Binding Path=IsSelected, Converter={StaticResource VisibilityConverter}}">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="DragDelta">
+                        <command:EventToCommand Command="{Binding Path=MoveCommand}"
+                                                PassEventArgsToCommand="True"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </Thumb>
+        </Grid>
+    </DataTemplate>
+</ResourceDictionary>
