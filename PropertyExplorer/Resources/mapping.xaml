@@ -1,0 +1,41 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:PropertyExplorer.Resources"
+                    xmlns:viewmodels="clr-namespace:PropertyExplorer.ViewModels"
+                    xmlns:models="clr-namespace:PropertyExplorer.Models">
+    
+    <DataTemplate DataType="{x:Type viewmodels:EntityViewModel}">
+        <Grid Width="{Binding Path=Width.Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+              Height="{Binding Path=Height.Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Background="Red">
+
+        </Grid>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type models:PropertyCategory}">
+        <Expander Header="{Binding Path=Name}" IsExpanded="True">
+            <ItemsControl ItemsSource="{Binding Path=Properties}"/>
+        </Expander>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type models:DoubleProperty}">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" Text="{Binding Path=Name}"/>
+            <TextBox Grid.Column="1" Text="{Binding Path=Value, UpdateSourceTrigger=PropertyChanged}"/>
+        </Grid>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type models:BrushProperty}">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" Text="{Binding Path=Name}"/>
+            <ComboBox Grid.Column="1" Text="{Binding Path=Value, UpdateSourceTrigger=PropertyChanged}"/>
+        </Grid>
+    </DataTemplate>
+</ResourceDictionary>
