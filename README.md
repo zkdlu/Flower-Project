@@ -8,8 +8,6 @@ https://www.youtube.com/playlist?list=PLWYsc03Zd8hiVRAIPkIqs33Z5IpifqUhn
 
 MVVM 패턴을 적용하여 새로 개발 예정
 
-### 1. 진행 상황 (5%)
-
 >![컴포넌트 선택](./images/1.jpg)
 
 >![컴포넌트 선택이동](./images/2.jpg)
