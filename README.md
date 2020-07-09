@@ -1,5 +1,13 @@
 # 순서도 기반의 교육용 비주얼 프로그래밍
 
+기존 프로젝트 시연 영상
+
+https://www.youtube.com/playlist?list=PLWYsc03Zd8hiVRAIPkIqs33Z5IpifqUhn
+
+
+
+MVVM 패턴을 적용하여 새로 개발 예정
+
 ### 1. 진행 상황 (5%)
 
 >![컴포넌트 선택](./images/1.jpg)
