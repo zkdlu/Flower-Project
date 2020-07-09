@@ -6,7 +6,7 @@ namespace PropertyExplorer.Models
     {
         public string Name { get; }
 
-        public List<Property> Properties { get; } = new List<Property>();
+        public List<PropertySet> Properties { get; } = new List<PropertySet>();
 
         public PropertyCategory(string categoryName)
         {

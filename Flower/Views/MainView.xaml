@@ -5,21 +5,30 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Flower.Views" xmlns:viewmodels="clr-namespace:Flower.ViewModels"
              xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" 
-             xmlns:command="http://www.galasoft.ch/mvvmlight"
+             xmlns:command="http://www.galasoft.ch/mvvmlight" xmlns:propertyexplorer="clr-namespace:PropertyExplorer;assembly=PropertyExplorer"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.DataContext>
         <viewmodels:MainViewModel/>
     </UserControl.DataContext>
-    <Canvas Background="LightGray">
-        <i:Interaction.Triggers>
-            <i:EventTrigger EventName="PreviewMouseDown">
-                <command:EventToCommand Command="{Binding Path=UnSelectAllCommand}"/>
-            </i:EventTrigger>
-        </i:Interaction.Triggers>
-        
-        <ContentControl 
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Canvas Grid.Column="0" Background="LightGray">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="PreviewMouseDown">
+                    <command:EventToCommand Command="{Binding Path=UnSelectAllCommand}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+
+            <ContentControl 
             ContentTemplate="{StaticResource ComponentTemplate}"
             Content="{Binding Path=ComponentViewModel}" Canvas.Left="{Binding Path=ComponentViewModel.X}" Canvas.Top="{Binding Path=ComponentViewModel.Y}"/>
-    </Canvas>
+        </Canvas>
+        <Grid Grid.Column="1">
+            <propertyexplorer:PropertyExplorer/>
+        </Grid>
+    </Grid>
 </UserControl>

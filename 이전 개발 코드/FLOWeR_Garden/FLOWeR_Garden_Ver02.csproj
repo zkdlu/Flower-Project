@@ -1,0 +1,368 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{18E1BE5F-24F3-4A7E-9731-932CF462EC22}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>FLOWeR_Garden_Ver02</RootNamespace>
+    <AssemblyName>FLOWeR_Garden_Ver02</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Win32Resource>
+    </Win32Resource>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>flow.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="Xceed.Wpf.AvalonDock, Version=3.3.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.3.0\lib\net40\Xceed.Wpf.AvalonDock.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Aero, Version=3.3.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.3.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.Aero.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Metro, Version=3.3.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.3.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.Metro.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.VS2010, Version=3.3.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.3.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.VS2010.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.DataGrid, Version=3.3.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.3.0\lib\net40\Xceed.Wpf.DataGrid.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.Toolkit, Version=3.3.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.3.0\lib\net40\Xceed.Wpf.Toolkit.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="DockablePane\EDock.cs" />
+    <Compile Include="DockablePane\IQuit.cs" />
+    <Compile Include="DockablePane\Pane.xaml.cs">
+      <DependentUpon>Pane.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Explorer\ProjectExplorer.xaml.cs">
+      <DependentUpon>ProjectExplorer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Explorer\ProjectManager.cs" />
+    <Compile Include="Explorer\ProjectExplorerWindow.cs" />
+    <Compile Include="FLOWeR\FlowchartDesigner\Action\ActionTool.xaml.cs">
+      <DependentUpon>ActionTool.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FLOWeR\FlowchartDesigner\Action\ActionToolWindow.cs" />
+    <Compile Include="FLOWeR\FlowchartDesigner\Action\ActionWindow.cs" />
+    <Compile Include="FLOWeR\FlowchartDesigner\Action\CodeInjection\ActionCodeInjection.cs" />
+    <Compile Include="FLOWeR\FlowchartDesigner\Action\CodeInjection\ActionCodeInjectionWindow.xaml.cs">
+      <DependentUpon>ActionCodeInjectionWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FLOWeR\FlowchartDesigner\Action\InputValue\ActionInputValue.cs" />
+    <Compile Include="FLOWeR\FlowchartDesigner\Action\InputValue\ActionInputValueWindow.xaml.cs">
+      <DependentUpon>ActionInputValueWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FLOWeR\FlowchartDesigner\Action\ListBoxs\ActionListBoxAdd.cs" />
+    <Compile Include="FLOWeR\FlowchartDesigner\Action\ListBoxs\ActionListBoxAddWindow.xaml.cs">
+      <DependentUpon>ActionListBoxAddWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FLOWeR\FlowchartDesigner\Action\ListBoxs\ActionListBoxRemove.cs" />
+    <Compile Include="FLOWeR\FlowchartDesigner\Action\ListBoxs\ActionListBoxRemoveWindow.xaml.cs">
+      <DependentUpon>ActionListBoxRemoveWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FLOWeR\FlowchartDesigner\Action\MessageBox\ActionMessageBox.cs" />
+    <Compile Include="FLOWeR\FlowchartDesigner\Action\MessageBox\ActionMessageBoxWindow.xaml.cs">
+      <DependentUpon>ActionMessageBoxWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FLOWeR\FlowchartDesigner\Component\FlowComponent.xaml.cs">
+      <DependentUpon>FlowComponent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FLOWeR\FlowchartDesigner\Symbol\FWDecision.cs" />
+    <Compile Include="FLOWeR\FlowchartDesigner\Symbol\FWLine.cs" />
+    <Compile Include="FLOWeR\FlowchartDesigner\FlowchartDesigner.xaml.cs">
+      <DependentUpon>FlowchartDesigner.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FLOWeR\FlowchartDesigner\FlowchartWindow.cs" />
+    <Compile Include="FLOWeR\FlowchartDesigner\FlowManager.cs" />
+    <Compile Include="FLOWeR\FlowchartDesigner\FlowTool.xaml.cs">
+      <DependentUpon>FlowTool.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FLOWeR\FlowchartDesigner\FlowToolWindow.cs" />
+    <Compile Include="FLOWeR\FlowchartDesigner\Symbol\FWProcess.cs" />
+    <Compile Include="FLOWeR\FlowchartDesigner\Symbol\FWReady.cs" />
+    <Compile Include="FLOWeR\FlowchartDesigner\Symbol\FWSymbol.cs" />
+    <Compile Include="FLOWeR\FlowchartDesigner\Symbol\FWTerminal.cs" />
+    <Compile Include="FLOWeR\FlowchartDesigner\Symbol\Window\FWDecisionWindow.xaml.cs">
+      <DependentUpon>FWDecisionWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FLOWeR\FlowchartDesigner\Symbol\Window\FWLineWindow.xaml.cs">
+      <DependentUpon>FWLineWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FLOWeR\FlowchartDesigner\Symbol\Window\FWReadyWindow.xaml.cs">
+      <DependentUpon>FWReadyWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FLOWeR\FlowchartDesigner\Symbol\Window\FWTerminalWindow.xaml.cs">
+      <DependentUpon>FWTerminalWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FLOWeR\FlowerManager.cs" />
+    <Compile Include="FLOWeR\Interpreter\FlowerInterpreter.cs" />
+    <Compile Include="FLOWeR\PropertyAttribute.cs" />
+    <Compile Include="FLOWeR\UIDesigner\Component\MultiVisibilityConverter.cs" />
+    <Compile Include="FLOWeR\UIDesigner\Component\VisibilityConverter.cs" />
+    <Compile Include="FLOWeR\UIDesigner\Control\FWButton.cs" />
+    <Compile Include="FLOWeR\UIDesigner\Control\FWControl.cs" />
+    <Compile Include="FLOWeR\UIDesigner\Control\FWListBox.cs" />
+    <Compile Include="FLOWeR\UIDesigner\Control\FWTextBox.cs" />
+    <Compile Include="FLOWeR\UIDesigner\FWEvent.xaml.cs">
+      <DependentUpon>FWEvent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FLOWeR\UIDesigner\FWEventList.cs" />
+    <Compile Include="FLOWeR\UIDesigner\FWEventWindow.cs" />
+    <Compile Include="FLOWeR\UIDesigner\FWProperty.xaml.cs">
+      <DependentUpon>FWProperty.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FLOWeR\UIDesigner\FWPropertyWindow.cs" />
+    <Compile Include="FLOWeR\UIDesigner\ToolBox.xaml.cs">
+      <DependentUpon>ToolBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FLOWeR\UIDesigner\ToolBoxWindow.cs" />
+    <Compile Include="FLOWeR\UIDesigner\Component\UIComponent.xaml.cs">
+      <DependentUpon>UIComponent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FLOWeR\UIDesigner\UIDesigner.xaml.cs">
+      <DependentUpon>UIDesigner.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FLOWeR\UIDesigner\UIManager.cs" />
+    <Compile Include="FLOWeR\UIDesigner\UIWindow.cs" />
+    <Compile Include="MakeProjectEventArgs.cs" />
+    <Compile Include="NewProjectWindow.xaml.cs">
+      <DependentUpon>NewProjectWindow.xaml</DependentUpon>
+    </Compile>
+    <Page Include="DockablePane\ContentPane.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DockablePane\DockPane.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DockablePane\FloatingWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DockablePane\OverlayWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DockablePane\Pane.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Explorer\ProjectExplorer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FLOWeR\FlowchartDesigner\Action\ActionTool.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FLOWeR\FlowchartDesigner\Action\CodeInjection\ActionCodeInjectionWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FLOWeR\FlowchartDesigner\Action\InputValue\ActionInputValueWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FLOWeR\FlowchartDesigner\Action\ListBoxs\ActionListBoxAddWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FLOWeR\FlowchartDesigner\Action\ListBoxs\ActionListBoxRemoveWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FLOWeR\FlowchartDesigner\Action\MessageBox\ActionMessageBoxWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FLOWeR\FlowchartDesigner\Component\FlowComponent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FLOWeR\FlowchartDesigner\FlowchartDesigner.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FLOWeR\FlowchartDesigner\FlowTool.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FLOWeR\FlowchartDesigner\Symbol\Window\FWDecisionWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FLOWeR\FlowchartDesigner\Symbol\Window\FWLineWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FLOWeR\FlowchartDesigner\Symbol\Window\FWReadyWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FLOWeR\FlowchartDesigner\Symbol\Window\FWTerminalWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FLOWeR\UIDesigner\FWEvent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FLOWeR\UIDesigner\FWProperty.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FLOWeR\UIDesigner\ToolBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FLOWeR\UIDesigner\Component\UIComponent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FLOWeR\UIDesigner\UIDesigner.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DockablePane\ContentPane.xaml.cs">
+      <DependentUpon>ContentPane.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DockablePane\DockManager.cs" />
+    <Compile Include="DockablePane\DockPane.xaml.cs">
+      <DependentUpon>DockPane.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DockablePane\FloatingWindow.xaml.cs">
+      <DependentUpon>FloatingWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DockablePane\OverlayWindow.xaml.cs">
+      <DependentUpon>OverlayWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="NewProjectWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\ComponentResource.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\ListBoxResource.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <SplashScreen Include="FlowerSplashScreen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\help.ico" />
+    <Resource Include="Resources\Icons\new.ico" />
+    <Resource Include="Resources\Icons\open.ico" />
+    <Resource Include="Resources\Icons\run.ico" />
+    <Resource Include="Resources\Icons\save.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Dock\DockBottom.PNG" />
+    <Resource Include="Resources\Images\Dock\DockLeft.PNG" />
+    <Resource Include="Resources\Images\Dock\DockPane.PNG" />
+    <Resource Include="Resources\Images\Dock\DockRight.PNG" />
+    <Resource Include="Resources\Images\Dock\DockTop.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\folder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="flow.ico" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

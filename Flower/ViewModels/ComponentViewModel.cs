@@ -1,5 +1,7 @@
 ﻿using Flower.Models;
 using GalaSoft.MvvmLight.Command;
+using PropertyExplorer.Models;
+using PropertyExplorer.ViewModels;
 using System;
 using System.Windows;
 using System.Windows.Controls.Primitives;

@@ -17,7 +17,7 @@
         </Expander>
     </DataTemplate>
 
-    <DataTemplate DataType="{x:Type models:DoubleProperty}">
+    <DataTemplate DataType="{x:Type models:DoublePropertySet}">
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
@@ -28,7 +28,7 @@
         </Grid>
     </DataTemplate>
 
-    <DataTemplate DataType="{x:Type models:BrushProperty}">
+    <DataTemplate DataType="{x:Type models:BrushPropertySet}">
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>

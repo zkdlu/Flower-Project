@@ -6,10 +6,13 @@
              xmlns:local="clr-namespace:PropertyExplorer.Views" xmlns:viewmodels="clr-namespace:PropertyExplorer.ViewModels"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <ResourceDictionary Source="../Resources/mapping.xaml"/>
+    </UserControl.Resources>
     <UserControl.DataContext>
         <viewmodels:PropertyViewModel/>
     </UserControl.DataContext>
-    <Grid Background="LightGray">
-        <ItemsControl ItemsSource="{Binding Path=Categories}"/>
+    <Grid Background="Gray">
+        <ItemsControl ItemsSource="{Binding Path=Categories, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
     </Grid>
 </UserControl>

@@ -1,0 +1,58 @@
+﻿<Window x:Class="FLOWeR_Garden_Ver02.NewProjectWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FLOWeR_Garden_Ver02"
+        mc:Ignorable="d"
+        Title="새 프로젝트" Height="450" Width="800" Loaded="Window_Loaded">
+    <DockPanel LastChildFill="True" Background="LightGray">
+        <Grid DockPanel.Dock="Bottom" Margin="3">
+            <Grid.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="Padding" Value="4"/>
+                </Style>
+            </Grid.Resources>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Border Grid.Column="0" Grid.Row="0">
+                <TextBlock Text="이름(N):" VerticalAlignment="Center"/>
+            </Border>
+            <Border Grid.Column="0" Grid.Row="1">
+                <TextBlock Text="경로(P):" VerticalAlignment="Center"/>
+            </Border>
+            <Border Grid.Column="1" Grid.Row="0">
+                <TextBox x:Name="tboProjectName" Height="25"/>
+            </Border>
+            <Border Grid.Column="1" Grid.Row="1">
+                <TextBox x:Name="tboProjectPath" Height="25" Text="D:\LeeGeon\Programming\종합설계\테스트"/>
+            </Border>
+            <Border Grid.Column="2" Grid.Row="1">
+                <Button x:Name="btnProjectPath" Content="찾아보기(B)" Height="25" Click="OnClickProjectPath"/>
+            </Border>
+            <Border Grid.Column="2" Grid.Row="2">
+                <Button x:Name="btnOk" Content="확인" Height="25" Click="OnClickOk"/>
+            </Border>
+            <Border Grid.Column="3" Grid.Row="2">
+                <Button x:Name="btnCancel" Content="취소" Height="25" Click="OnClickCancel"/>
+            </Border>
+        </Grid>
+        <StackPanel DockPanel.Dock="Top" Background="Gray" Margin="10,10,10,0">
+            <ListBox x:Name="lboProjectType" SelectedIndex="0">
+                <TextBlock Text="Windows Forms 앱(.NET Framework)"/>
+                <TextBlock Text="[준비 되지 않음] WPF 앱(.NET Framework)"/>
+                <TextBlock Text="[준비 되지 않음] 콘솔 앱(.NET Framework)"/>
+                <TextBlock Text="[준비 되지 않음] 비어 있는 앱(.NET Framework)"/>
+            </ListBox>
+        </StackPanel>
+    </DockPanel>
+</Window>

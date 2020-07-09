@@ -9,19 +9,19 @@ namespace PropertyExplorer.ViewModels
 
         public ObservableCollection<PropertyCategory> Categories { get; } = new ObservableCollection<PropertyCategory>();
 
-        public Property Width { get; }
+        public PropertySet Width { get; }
 
-        public Property Height { get; }
+        public PropertySet Height { get; }
 
         public EntityViewModel(IEntity entity)
         {
             Entity = entity;
 
-            Width = new DoubleProperty(nameof(Width),
+            Width = new DoublePropertySet(nameof(Width),
                 () => Entity.Width,
                 w => Entity.Width = w);
 
-            Height = new DoubleProperty(nameof(Height),
+            Height = new DoublePropertySet(nameof(Height),
                 () => Entity.Height,
                 h => Entity.Height = h);
 

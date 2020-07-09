@@ -1,0 +1,31 @@
+﻿<UserControl x:Class="FLOWeR_Garden_Ver02.FLOWeR.FlowchartDesigner.Action.ActionTool"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:codeinjection="clr-namespace:FLOWeR_Garden_Ver02.FLOWeR.FlowchartDesigner.Action.CodeInjection"
+             xmlns:inputvalue="clr-namespace:FLOWeR_Garden_Ver02.FLOWeR.FlowchartDesigner.Action.InputValue"
+             xmlns:messagebox="clr-namespace:FLOWeR_Garden_Ver02.FLOWeR.FlowchartDesigner.Action.MessageBox"
+             xmlns:listboxs="clr-namespace:FLOWeR_Garden_Ver02.FLOWeR.FlowchartDesigner.Action.ListBoxs"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="300">
+
+    <UserControl.Resources>
+        <ResourceDictionary Source="../../../Resources/ListBoxResource.xaml"/>
+    </UserControl.Resources>
+    
+    <Grid>
+        <ListBox x:Name="lboxAction" ItemContainerStyle="{StaticResource ListBoxStyle}" SelectionChanged="ListBox_SelectionChanged">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Path=Description}"/>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+            <inputvalue:ActionInputValue/>
+            <codeinjection:ActionCodeInjection/>
+            <messagebox:ActionMessageBox/>
+            <listboxs:ActionListBoxAdd/>
+            <listboxs:ActionListBoxRemove/>
+        </ListBox>
+    </Grid>
+</UserControl>

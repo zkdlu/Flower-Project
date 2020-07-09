@@ -31,3 +31,5 @@ D:\Project\project\Flower\Flower\bin\Debug\GalaSoft.MvvmLight.Extras.xml
 D:\Project\project\Flower\Flower\bin\Debug\GalaSoft.MvvmLight.Platform.pdb
 D:\Project\project\Flower\Flower\bin\Debug\GalaSoft.MvvmLight.Platform.xml
 D:\Project\project\Flower\Flower\obj\Debug\Flower.csproj.CopyComplete
+D:\Project\project\Flower\Flower\bin\Debug\PropertyExplorer.dll
+D:\Project\project\Flower\Flower\bin\Debug\PropertyExplorer.pdb

@@ -1,10 +1,22 @@
 ﻿using PropertyExplorer.Models;
 using System.Collections.ObjectModel;
+using System.Runtime.CompilerServices;
 
 namespace PropertyExplorer.ViewModels
 {
-    class PropertyViewModel : BaseViewModel
+    public class PropertyViewModel : BaseViewModel
     {
-        public ObservableCollection<PropertyCategory> Categories { get; } = Mediator.SelectedEntityViewModel.Categories;
+        public PropertyViewModel()
+        {
+            Mediator.PropertyViewModel = this;
+            Categories = new ObservableCollection<PropertyCategory>();
+        }
+
+        public void SetEntityViewModel(EntityViewModel entityViewModel)
+        {
+            Categories = entityViewModel.Categories;
+        }
+
+        public ObservableCollection<PropertyCategory> Categories { get; set; }
     }
 }

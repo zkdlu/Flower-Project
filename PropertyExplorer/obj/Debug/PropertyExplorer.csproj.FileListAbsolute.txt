@@ -6,6 +6,7 @@ D:\Project\project\Flower\PropertyExplorer\obj\Debug\GeneratedInternalTypeHelper
 D:\Project\project\Flower\PropertyExplorer\obj\Debug\PropertyExplorer_MarkupCompile.cache
 D:\Project\project\Flower\PropertyExplorer\obj\Debug\PropertyExplorer_MarkupCompile.lref
 D:\Project\project\Flower\PropertyExplorer\obj\Debug\PropertyExplorer.baml
+D:\Project\project\Flower\PropertyExplorer\obj\Debug\Resources\mapping.baml
 D:\Project\project\Flower\PropertyExplorer\obj\Debug\Views\PropertyView.baml
 D:\Project\project\Flower\PropertyExplorer\obj\Debug\PropertyExplorer.g.resources
 D:\Project\project\Flower\PropertyExplorer\obj\Debug\PropertyExplorer.Properties.Resources.resources
@@ -13,4 +14,4 @@ D:\Project\project\Flower\PropertyExplorer\obj\Debug\PropertyExplorer.csproj.Gen
 D:\Project\project\Flower\PropertyExplorer\obj\Debug\PropertyExplorer.csproj.CoreCompileInputs.cache
 D:\Project\project\Flower\PropertyExplorer\obj\Debug\PropertyExplorer.dll
 D:\Project\project\Flower\PropertyExplorer\obj\Debug\PropertyExplorer.pdb
-D:\Project\project\Flower\PropertyExplorer\obj\Debug\Resources\mapping.baml
+D:\Project\project\Flower\PropertyExplorer\obj\Debug\PropertyExplorer.csprojAssemblyReference.cache

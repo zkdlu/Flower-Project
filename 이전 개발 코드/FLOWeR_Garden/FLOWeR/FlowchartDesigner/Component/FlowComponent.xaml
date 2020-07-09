@@ -1,0 +1,142 @@
+﻿<UserControl x:Class="FLOWeR_Garden_Ver02.FLOWeR.FlowchartDesigner.Component.FlowComponent"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:FLOWeR_Garden_Ver02.FLOWeR.FlowchartDesigner.Component"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+
+    <UserControl.Resources>
+        <ResourceDictionary Source="../../../Resources/ComponentResource.xaml"/>
+    </UserControl.Resources>
+
+    <Grid PreviewMouseDown="Grid_PreviewMouseDown">
+        <ContentPresenter x:Name="contentPresenter">
+            <ContentPresenter.Content>
+                <Grid x:Name="contentGrid">
+                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" FontWeight="Bold" Text="{Binding Path=Description}"/>
+                </Grid>
+            </ContentPresenter.Content>
+        </ContentPresenter>
+        <!-- Selection -->
+        <Thumb x:Name="SelectionThumb"
+               Style="{StaticResource SelectionThumbStyle}"
+               DragDelta="SelectionThumb_DragDelta"
+               HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+               Cursor="SizeAll"
+               Visibility="{Binding Path=IsSelected, 
+                                Converter={StaticResource visibilityConverter}, 
+                                RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"/>
+
+        <!-- Resize Corner-->
+        <Thumb x:Name="TopLeftThumb"
+               Style="{StaticResource ResizeThumbStyle}"
+               DragDelta="ResizeThumb_DragDelta"
+               HorizontalAlignment="Left" VerticalAlignment="Top"
+               Width="10" Height="10" Margin="-5,-5,0,0"
+               Cursor="SizeNWSE">
+            <Thumb.Visibility>
+                <MultiBinding Converter="{StaticResource multiVisibilityConverter}">
+                    <Binding Path="IsSelected" RelativeSource="{RelativeSource AncestorType={x:Type UserControl}}"/>
+                    <Binding Path="CanHResize" RelativeSource="{RelativeSource AncestorType={x:Type UserControl}}"/>
+                    <Binding Path="CanVResize" RelativeSource="{RelativeSource AncestorType={x:Type UserControl}}"/>
+                </MultiBinding>
+            </Thumb.Visibility>
+        </Thumb>
+        <Thumb x:Name="TopThumb"
+               Style="{StaticResource ResizeThumbStyle}"
+               DragDelta="ResizeThumb_DragDelta"
+               HorizontalAlignment="Center" VerticalAlignment="Top"
+               Width="10" Height="10" Margin="0,-5,0,0"
+               Cursor="SizeNS">
+            <Thumb.Visibility>
+                <MultiBinding Converter="{StaticResource multiVisibilityConverter}">
+                    <Binding Path="IsSelected" RelativeSource="{RelativeSource AncestorType={x:Type UserControl}}"/>
+                    <Binding Path="CanVResize" RelativeSource="{RelativeSource AncestorType={x:Type UserControl}}"/>
+                </MultiBinding>
+            </Thumb.Visibility>
+        </Thumb>
+        <Thumb x:Name="TopRightThumb"
+               Style="{StaticResource ResizeThumbStyle}"
+               DragDelta="ResizeThumb_DragDelta"
+               HorizontalAlignment="Right" VerticalAlignment="Top"
+               Width="10" Height="10" Margin="0,-5,-5,0"
+               Cursor="SizeNESW">
+            <Thumb.Visibility>
+                <MultiBinding Converter="{StaticResource multiVisibilityConverter}">
+                    <Binding Path="IsSelected" RelativeSource="{RelativeSource AncestorType={x:Type UserControl}}"/>
+                    <Binding Path="CanHResize" RelativeSource="{RelativeSource AncestorType={x:Type UserControl}}"/>
+                    <Binding Path="CanVResize" RelativeSource="{RelativeSource AncestorType={x:Type UserControl}}"/>
+                </MultiBinding>
+            </Thumb.Visibility>
+        </Thumb>
+        <Thumb x:Name="LeftThumb"
+               Style="{StaticResource ResizeThumbStyle}"
+               DragDelta="ResizeThumb_DragDelta"
+               HorizontalAlignment="Left" VerticalAlignment="Center"
+               Width="10" Height="10" Margin="-5,0,0,0"
+               Cursor="SizeWE">
+            <Thumb.Visibility>
+                <MultiBinding Converter="{StaticResource multiVisibilityConverter}">
+                    <Binding Path="IsSelected" RelativeSource="{RelativeSource AncestorType={x:Type UserControl}}"/>
+                    <Binding Path="CanHResize" RelativeSource="{RelativeSource AncestorType={x:Type UserControl}}"/>
+                </MultiBinding>
+            </Thumb.Visibility>
+        </Thumb>
+        <Thumb x:Name="RightThumb"
+               Style="{StaticResource ResizeThumbStyle}"
+               DragDelta="ResizeThumb_DragDelta"
+               HorizontalAlignment="Right" VerticalAlignment="Center"
+               Width="10" Height="10" Margin="0,0,-5,0"
+               Cursor="SizeWE">
+            <Thumb.Visibility>
+                <MultiBinding Converter="{StaticResource multiVisibilityConverter}">
+                    <Binding Path="IsSelected" RelativeSource="{RelativeSource AncestorType={x:Type UserControl}}"/>
+                    <Binding Path="CanHResize" RelativeSource="{RelativeSource AncestorType={x:Type UserControl}}"/>
+                </MultiBinding>
+            </Thumb.Visibility>
+        </Thumb>
+        <Thumb x:Name="BottomLeftThumb"
+               Style="{StaticResource ResizeThumbStyle}"
+               DragDelta="ResizeThumb_DragDelta"
+               HorizontalAlignment="Left" VerticalAlignment="Bottom"
+               Width="10" Height="10" Margin="-5,0,0,-5"
+               Cursor="SizeNESW">
+            <Thumb.Visibility>
+                <MultiBinding Converter="{StaticResource multiVisibilityConverter}">
+                    <Binding Path="IsSelected" RelativeSource="{RelativeSource AncestorType={x:Type UserControl}}"/>
+                    <Binding Path="CanHResize" RelativeSource="{RelativeSource AncestorType={x:Type UserControl}}"/>
+                    <Binding Path="CanVResize" RelativeSource="{RelativeSource AncestorType={x:Type UserControl}}"/>
+                </MultiBinding>
+            </Thumb.Visibility>
+        </Thumb>
+        <Thumb x:Name="BottomThumb"
+               Style="{StaticResource ResizeThumbStyle}"
+               DragDelta="ResizeThumb_DragDelta"
+               HorizontalAlignment="Center" VerticalAlignment="Bottom"
+               Width="10" Height="10" Margin="0,0,0,-5"
+               Cursor="SizeNS">
+            <Thumb.Visibility>
+                <MultiBinding Converter="{StaticResource multiVisibilityConverter}">
+                    <Binding Path="IsSelected" RelativeSource="{RelativeSource AncestorType={x:Type UserControl}}"/>
+                    <Binding Path="CanVResize" RelativeSource="{RelativeSource AncestorType={x:Type UserControl}}"/>
+                </MultiBinding>
+            </Thumb.Visibility>
+        </Thumb>
+        <Thumb x:Name="BottomRightThumb"
+               Style="{StaticResource ResizeThumbStyle}"
+               DragDelta="ResizeThumb_DragDelta"
+               HorizontalAlignment="Right" VerticalAlignment="Bottom"
+               Width="10" Height="10" Margin="0,0,-5,-5"
+               Cursor="SizeNWSE">
+            <Thumb.Visibility>
+                <MultiBinding Converter="{StaticResource multiVisibilityConverter}">
+                    <Binding Path="IsSelected" RelativeSource="{RelativeSource AncestorType={x:Type UserControl}}"/>
+                    <Binding Path="CanHResize" RelativeSource="{RelativeSource AncestorType={x:Type UserControl}}"/>
+                    <Binding Path="CanVResize" RelativeSource="{RelativeSource AncestorType={x:Type UserControl}}"/>
+                </MultiBinding>
+            </Thumb.Visibility>
+        </Thumb>
+    </Grid>
+</UserControl>

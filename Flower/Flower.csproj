@@ -131,5 +131,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PropertyExplorer\PropertyExplorer.csproj">
+      <Project>{5c489a7c-241a-4c61-ad32-41eb70d39dbe}</Project>
+      <Name>PropertyExplorer</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,8 +1,9 @@
-﻿using System.Windows.Media;
+﻿using PropertyExplorer.Models;
+using System.Windows.Media;
 
 namespace Flower.Models
 {
-    class Component
+    class Component : IEntity
     {
         public double Width { get; set; } = 100;
 

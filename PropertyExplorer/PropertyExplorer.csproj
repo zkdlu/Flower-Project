@@ -60,9 +60,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Compile Include="Common\Notifier.cs" />
-    <Compile Include="Models\Entity.cs" />
-    <Compile Include="Models\Properties.cs" />
-    <Compile Include="Models\Property.cs" />
+    <Compile Include="Models\IEntity.cs" />
+    <Compile Include="Models\PropertySets.cs" />
+    <Compile Include="Models\PropertySet.cs" />
     <Compile Include="Models\PropertyCategory.cs" />
     <Compile Include="PropertyExplorer.xaml.cs">
       <DependentUpon>PropertyExplorer.xaml</DependentUpon>

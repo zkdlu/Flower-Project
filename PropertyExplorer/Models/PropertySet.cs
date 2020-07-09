@@ -2,15 +2,13 @@
 
 namespace PropertyExplorer.Models
 {
-    public class Property
-    {
-
-    }
-
-    public class Property<T> : Property
+    public class PropertySet
     {
         public string Name { get; set; }
+    }
 
+    public class PropertySet<T> : PropertySet
+    {
         private Func<T> getter;
         private Action<T> setter;
 
@@ -26,7 +24,7 @@ namespace PropertyExplorer.Models
             }
         }
 
-        public Property(string name, Func<T> getter, Action<T> setter)
+        public PropertySet(string name, Func<T> getter, Action<T> setter)
         {
             Name = name;
 

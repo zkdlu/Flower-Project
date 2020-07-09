@@ -1,0 +1,22 @@
+﻿<UserControl x:Class="FLOWeR_Garden_Ver02.FLOWeR.FlowchartDesigner.Symbol.Window.FWTerminalWindow"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:FLOWeR_Garden_Ver02.FLOWeR.FlowchartDesigner.Symbol.Window"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="300">
+       <Grid Background="White">
+        <ListBox Margin="3">
+            <ListBox.ItemContainerStyle>
+                <Style TargetType="ListBoxItem">
+                    <Setter Property="Margin" Value="1"/>
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                </Style>
+            </ListBox.ItemContainerStyle>
+            <Grid>
+                <TextBlock HorizontalAlignment="Center" Text="시작/끝"/>             
+            </Grid>
+        </ListBox>
+    </Grid>
+</UserControl>
